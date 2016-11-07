@@ -44,6 +44,14 @@ public class Department implements Serializable {
 		this.name = name;
 	}
 
+	public User getBoss() {
+		return boss;
+	}
+
+	public void setBoss(User boss) {
+		this.boss = boss;
+	}
+
 	@Override
 	public String toString() {
 		return name;

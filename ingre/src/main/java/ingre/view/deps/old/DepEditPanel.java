@@ -1,4 +1,4 @@
-package ingre.view.deps;
+package ingre.view.deps.old;
 
 import java.awt.Dimension;
 import java.util.List;
@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import ingre.dao.UserDao;
-import ingre.model.Department;
 import ingre.model.User;
 
 public class DepEditPanel extends JPanel{
@@ -24,11 +23,6 @@ public class DepEditPanel extends JPanel{
 	
 	public DepEditPanel(){
 		init();
-	}
-	
-	public DepEditPanel(Department dep){
-		init();
-		nameField.setText(dep.getName());
 	}
 	
 	public void init(){

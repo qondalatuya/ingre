@@ -1,4 +1,4 @@
-package ingre.view.users;
+package ingre.view.users.old;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 import ingre.model.User;
 
 /*
- * Dialogo para modificar el usuario cargado previamente.recibe como parámetro un objeto "User" y despliega el dialogo para modificar sus datos.
+ * Dialogo para modificar el usuario cargado previamente. recibe como parámetro un objeto "User" y despliega el dialogo para modificar sus datos.
  * Las modificaciones se hacen sobre el parámetro. NO ACTUALIZA LA BD
  * 
  */

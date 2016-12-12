@@ -1,4 +1,4 @@
-package ingre.view.users;
+package ingre.view.users.old;
 
 import java.awt.Dimension;
 import java.util.List;
@@ -39,7 +39,6 @@ public class UserEditPanel extends JPanel {
 		init();
 		userNameField.setText(user.getUserName());
 		realNameField.setText(user.getRealName());
-//		depcombobox.setSelectedItem(user.getDepartment());
 		userNameField.setEnabled(false);
 		
 		checkboxisActive.setSelected(user.isActive());
@@ -54,7 +53,7 @@ public class UserEditPanel extends JPanel {
 		departmentLabel = new JLabel("Departamento");
 		isActiveLabel = new JLabel("Activo?");
 		userNameField = new JTextField();
-		realNameField = new JTextField();
+		realNameField = new JTextField();		
 		
 		depcombobox= new JComboBox<Department>();
 		checkboxisActive = new JCheckBox();
@@ -88,8 +87,8 @@ public class UserEditPanel extends JPanel {
 					.addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
 							.addComponent(userNameField)
 							.addComponent(realNameField)
-							.addComponent(depcombobox).
-							addComponent(checkboxisActive)
+							.addComponent(depcombobox)
+							.addComponent(checkboxisActive)
 							)
 				);
 				
@@ -130,4 +129,5 @@ public class UserEditPanel extends JPanel {
 	public boolean isActiveUser(){
 		return checkboxisActive.isSelected();
 	}
+	
 }

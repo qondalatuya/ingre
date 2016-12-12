@@ -1,4 +1,4 @@
-package ingre.view.users;
+package ingre.view.users.old;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -7,10 +7,12 @@ import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -19,7 +21,7 @@ import ingre.dao.UserDao;
 import ingre.model.Department;
 import ingre.model.User;
 
-public class UsersManage extends JPanel {	
+public class UsersManage extends JFrame {	
 	private static final long serialVersionUID = -8104795210887305316L;
 	UserDao daoUser = new UserDao();
 	DepartmentDao daoDep = new DepartmentDao();
@@ -28,6 +30,16 @@ public class UsersManage extends JPanel {
 	List<User> users;
 	List<Department> deps;
 	JPanel newUserPanel,usersPanel;
+	
+	public static void main(String[] args){
+		SwingUtilities.invokeLater(new Runnable() {			
+			@Override
+			public void run() {
+				UsersManage window = new UsersManage();
+				window.setVisible(true);				
+			}
+		});
+	}
 	
 	public UsersManage(){
 		this.constructLeftPanel();
@@ -62,13 +74,14 @@ public class UsersManage extends JPanel {
 		
 		newUserPanel.add(userEditPanel);
 		newUserPanel.add(savebtn);
-//				
+		getRootPane().setDefaultButton(savebtn);//agrega el boton como "enter por defecto" para el Jframe. Al presionar la tecla se invoca al actionPermormed del Jbutton		
 		
 	}
 	
 	protected void constructCenterPanel(){
 		usersPanel = new JPanel();		
 		usersPanel.setLayout(new BorderLayout());
+//		usersPanel.setLayout(new BoxLayout(usersPanel,BoxLayout.Y_AXIS));
 		
 		JScrollPane tablePanel = new JScrollPane();
 		model = new DefaultTableModel()
@@ -76,7 +89,7 @@ public class UsersManage extends JPanel {
 			private static final long serialVersionUID = 279157351021069600L;
 			@Override
 			public boolean isCellEditable(int fila, int columna){
-				return false;//pareceria que se puede definir algun tipo de logica que returne V/F según si la celda de la tabla es editable o no.
+				return false;//pareceria que se puede definir algun tipo de logica que retorne V/F según si la celda de la tabla es editable o no.
 			}// en este caso returna falso, para cualquier combinacion de fila/columna
 		};
 		table = new JTable(model);
@@ -91,7 +104,7 @@ public class UsersManage extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (table.getSelectedRow()!=-1){
-//					model.getValueAt(table.getSelectedRow(), 1);
+					model.getValueAt(table.getSelectedRow(), 1);
 					UserEdit userEdit = new UserEdit(users.get(table.getSelectedRow()));
 					userEdit.setVisible(true);
 					daoUser.update(users.get(table.getSelectedRow()));
@@ -126,8 +139,11 @@ public class UsersManage extends JPanel {
 	
 	protected void init(){
 		this.setLayout(new BorderLayout());
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);        
+		this.setTitle("Administración de Usuarios");
 		this.add(usersPanel,BorderLayout.CENTER);
 		this.add(newUserPanel, BorderLayout.WEST);
+		this.pack();		
 	
 	}
 	

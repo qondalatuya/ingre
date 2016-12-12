@@ -14,7 +14,15 @@ import javax.persistence.Table;
 public class User implements Serializable {
 	
 	private static final long serialVersionUID = 7220128160395743729L;
-
+	
+	public User(String uname, String rname){
+		this.userName=uname;
+		this.realName=rname;
+	}
+	
+	public User(){	
+	}
+	
 	@Id
 	@Column	
 	private String userName;

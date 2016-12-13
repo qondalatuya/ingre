@@ -124,7 +124,7 @@ public class UsersManage extends JPanel {
 	}
 	
 	
-	protected void init(){
+	public void init(){
 		this.setLayout(new BorderLayout());
 		this.add(usersPanel,BorderLayout.CENTER);
 		this.add(newUserPanel, BorderLayout.WEST);

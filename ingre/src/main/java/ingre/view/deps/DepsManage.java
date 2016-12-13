@@ -30,7 +30,7 @@ public class DepsManage extends JPanel{
 		init();
 	}
 	
-	private void init(){
+	public void init(){
 		this.setLayout(new BorderLayout());
 		this.add(newDepPanel,BorderLayout.WEST);
 		this.add(depsPanel,BorderLayout.CENTER);
@@ -125,4 +125,5 @@ public class DepsManage extends JPanel{
 			
 		}
 	}
+	
 }

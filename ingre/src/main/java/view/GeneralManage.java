@@ -1,8 +1,11 @@
 package view;
 
+
 import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingUtilities;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import ingre.view.deps.DepsManage;
 import ingre.view.users.UsersManage;
@@ -24,12 +27,22 @@ public class GeneralManage extends JFrame {
 	}
 	
 	protected void init(){
-		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setTitle("Administración");
 		JTabbedPane tabbedpane = new JTabbedPane();
+		
 		tabbedpane.addTab("Usuarios", new UsersManage());
 		tabbedpane.addTab("Departamentos",new DepsManage());
+				
 		this.add(tabbedpane);
-		this.pack();
+		this.pack();		
+		
+		tabbedpane.addChangeListener(new ChangeListener() {			
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				tabbedpane.setComponentAt(0, new UsersManage());
+				tabbedpane.setComponentAt(1, new DepsManage());
+			}
+		}); 
 	}
 }

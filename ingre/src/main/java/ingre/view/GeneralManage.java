@@ -1,4 +1,4 @@
-package view;
+package ingre.view;
 
 
 import javax.swing.JFrame;

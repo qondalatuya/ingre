@@ -11,7 +11,7 @@
 <!--     <property name="hibernate.connection.username">sql3148247</property> -->
 <!--     <property name="hibernate.connection.password">uSdLHjMi6c</property> -->
 
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ingredb</property>
+    <property name="hibernate.connection.url">jdbc:mysql://10.60.7.33:3306/ingredb</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
 

@@ -7,7 +7,7 @@
 <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<!--     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> -->
 	<spring.version>3.0.5.RELEASE</spring.version>
 </properties>
 
@@ -58,7 +58,7 @@
 			<executions>
 			  <execution>
 				<id>make-assembly</id>
-                                       <!-- bind to the packaging phase -->
+                <!-- bind to the packaging phase -->
 				<phase>package</phase>
 				<goals>
 					<goal>single</goal>

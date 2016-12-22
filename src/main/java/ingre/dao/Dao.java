@@ -51,7 +51,7 @@ public class Dao<T,K extends Serializable>{
 		Transaction tx =session.beginTransaction();
 		List<T> lista = null;
 		try{
-			lista = session.createQuery("from " + clazz.getName()).getResultList();
+			lista = session.createQuery("from " + clazz.getName()).list();
 			tx.commit();
 		} catch (HibernateException e){
 			tx.rollback();
